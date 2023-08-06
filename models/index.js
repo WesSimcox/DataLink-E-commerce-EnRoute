@@ -1,14 +1,13 @@
-const category = require('./category');
-const product = require('./product');
-const tag = require('./tag');
-const productTag = require('./productTag');
+const Category = require('./Category');
+const Product = require('./Product');
+const ProductTag = require('./ProductTag');
+const Tag = require('./Tag');
 
+// Add associations between models if needed
+// For example, assuming you have defined associations in each model:
+// Product.belongsTo(Category, { foreignKey: 'category_id' });
+// Category.hasMany(Product, { foreignKey: 'category_id' });
+// Product.belongsToMany(Tag, { through: ProductTag, foreignKey: 'product_id' });
+// Tag.belongsToMany(Product, { through: ProductTag, foreignKey: 'tag_id' });
 
-
-
-module.exports = {
-    product,
-    category,
-    tag,
-    productTag,
-};
+module.exports = { Category, Product, ProductTag, Tag };
