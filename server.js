@@ -1,16 +1,15 @@
 const express = require('express');
-const routes = require('./routes');
-const sequelize = require('./config/connection');
+const bodyParser = require('body-parser');
+const routes = require('./routes/routes');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = 3000;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}!`);
-  });
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
